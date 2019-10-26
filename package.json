@@ -4,7 +4,9 @@
   "description": "Library for converting AWS Textract responses into a more usable structure.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest"
   },
   "keywords": [
     "textract",
@@ -14,7 +16,23 @@
   "author": "brian.cullen@gmail.com",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^24.0.20",
+    "@types/node": "^12.11.7",
     "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
     "typescript": "^3.6.4"
-  }
+  },
+  "dependencies": {},
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briancullen/aws-textract-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/briancullen/aws-textract-parser/issues"
+  },
+  "homepage": "https://github.com/briancullen/aws-textract-parser#readme"
 }
