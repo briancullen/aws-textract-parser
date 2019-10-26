@@ -1,0 +1,20 @@
+{
+  "name": "@briancullen/aws-textract-parser",
+  "version": "0.0.1",
+  "description": "Library for converting AWS Textract responses into a more usable structure.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "textract",
+    "aws",
+    "typescript"
+  ],
+  "author": "brian.cullen@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "typescript": "^3.6.4"
+  }
+}
