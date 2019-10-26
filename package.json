@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "tslint -p tsconfig.json",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [
     "textract",
