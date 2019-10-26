@@ -8,4 +8,10 @@ export const doSomething = () => {
   console.log([message, target].join(" "));
 };
 
+export const doSomethingElse = () => {
+  const target = "there"
+  const message = "hello"
+  console.log([message, target].join(" "));
+};
+
 export default insulter;
