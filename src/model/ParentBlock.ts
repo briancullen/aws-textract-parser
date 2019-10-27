@@ -1,6 +1,6 @@
-import { Block, ParentBlock } from '../api'
+import { Block } from '../types'
 
-export default class TextractParentBlock<T extends Block> implements ParentBlock<T> {
+export default class ParentBlock<T extends Block> implements ParentBlock<T> {
   constructor (private readonly childList: T[]) { }
 
   get (id: string): T | undefined {

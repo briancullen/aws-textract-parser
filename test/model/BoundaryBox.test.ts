@@ -1,4 +1,4 @@
-import TextractBoundryBox from '../../src/textract/TextractBoundryBox'
+import TextractBoundryBox from '../../src/model/BoundryBox'
 
 describe('Textract boundary box implementation', () => {
   it('should construct bondary box instance', () => {

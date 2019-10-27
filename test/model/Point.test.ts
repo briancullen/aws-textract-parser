@@ -1,4 +1,4 @@
-import TextractPoint from '../../src/textract/TextractPoint'
+import TextractPoint from '../../src/model/Point'
 
 describe('Textract point implementation', () => {
   it('should construct point instance', () => {

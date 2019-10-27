@@ -1,6 +1,6 @@
-import TextractPageBlock from '../../src/textract/TextractPageBlock'
-import { Geometry } from '../../src/api'
-import TextractLineBlock from '../../src/textract/TextractLineBlock'
+import TextractPageBlock from '../../src/model/PageBlock'
+import LineBlock from '../../src/model/LineBlock'
+import Geometry from '../../src/model/Geometry'
 
 describe('Textract page block implementation', () => {
   it('should construct page block instance', () => {
@@ -12,7 +12,7 @@ describe('Textract page block implementation', () => {
       polygon: [{ x: 1, y: 2 }]
     }
 
-    const line = new TextractLineBlock(id, geometry, text, [])
+    const line = new LineBlock(id, geometry, text, [])
 
     // When
     const page = new TextractPageBlock(id, geometry, [line])

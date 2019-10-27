@@ -1,6 +1,6 @@
-import TextractParentBlock from '../../src/textract/TextractParentBlock'
-import TextractWordBlock from '../../src/textract/TextractWordBlock'
-import { Geometry, WordBlock } from '../../src/api'
+import ParentBlock from '../../src/model/ParentBlock'
+import Geometry from '../../src/model/Geometry'
+import WordBlock from '../../src/model/WordBlock'
 
 describe('Textract parent block implementation', () => {
   const text = 'text'
@@ -9,12 +9,12 @@ describe('Textract parent block implementation', () => {
     polygon: [{ x: 1, y: 2 }]
   }
 
-  const word1 = new TextractWordBlock('id1', geometry, text)
-  const word2 = new TextractWordBlock('id2', geometry, text)
-  const word3 = new TextractWordBlock('id3', geometry, text)
+  const word1 = new WordBlock('id1', geometry, text)
+  const word2 = new WordBlock('id2', geometry, text)
+  const word3 = new WordBlock('id3', geometry, text)
 
   const words = [word1, word2]
-  const block = new TextractParentBlock<WordBlock>(words)
+  const block = new ParentBlock<WordBlock>(words)
 
   it('should return children', () => {
     // Then

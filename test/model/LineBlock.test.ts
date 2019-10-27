@@ -1,6 +1,6 @@
-import TextractLineBlock from '../../src/textract/TextractLineBlock'
-import { Geometry } from '../../src/api'
-import TextractWordBlock from '../../src/textract/TextractWordBlock'
+import LineBlock from '../../src/model/LineBlock'
+import TextractWordBlock from '../../src/model/WordBlock'
+import Geometry from '../../src/model/Geometry'
 
 describe('Textract line block implementation', () => {
   it('should construct line block instance', () => {
@@ -13,7 +13,7 @@ describe('Textract line block implementation', () => {
     }
 
     // When
-    const line = new TextractLineBlock(id, geometry, text, [])
+    const line = new LineBlock(id, geometry, text, [])
 
     // Then
     expect(line.id).toEqual(id)
@@ -48,7 +48,7 @@ describe('Textract line block implementation', () => {
     const word3 = new TextractWordBlock('id3', geometry3, text)
 
     // When
-    const line = new TextractLineBlock(id, geometry1, text, [word1, word2, word3])
+    const line = new LineBlock(id, geometry1, text, [word1, word2, word3])
 
     // Then
     expect(line.id).toEqual(id)

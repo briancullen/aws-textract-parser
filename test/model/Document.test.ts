@@ -1,8 +1,9 @@
-import TextractDocument from '../../src/textract/TextractDocument'
-import { Blocks, Block, Geometry } from '../../src/api'
-import TextractWordBlock from '../../src/textract/TextractWordBlock'
-import TextractLineBlock from '../../src/textract/TextractLineBlock'
-import TextractPageBlock from '../../src/textract/TextractPageBlock'
+import Document from '../../src/model/Document'
+import { Blocks, Block } from '../../src/types'
+import TextractWordBlock from '../../src/model/WordBlock'
+import LineBlock from '../../src/model/LineBlock'
+import TextractPageBlock from '../../src/model/PageBlock'
+import Geometry from '../../src/model/Geometry'
 
 describe('Textract point implementation', () => {
   it('should construct point instance', () => {
@@ -11,7 +12,7 @@ describe('Textract point implementation', () => {
     const children: Blocks<Block> = []
 
     // When
-    const document = new TextractDocument(pages, children)
+    const document = new Document(pages, children)
 
     // Then
     expect(document.metadata.pages).toEqual(pages)
@@ -29,13 +30,13 @@ describe('Textract point implementation', () => {
       polygon: [{ x: 1, y: 2 }]
     }
 
-    const line = new TextractLineBlock(id, geometry, text, [])
+    const line = new LineBlock(id, geometry, text, [])
     const page = new TextractPageBlock(id, geometry, [line])
     const word = new TextractWordBlock(id, geometry, text)
     const blocks = [line, page, word]
 
     // When
-    const document = new TextractDocument(pages, blocks)
+    const document = new Document(pages, blocks)
 
     // Then
     const parent = document.pages

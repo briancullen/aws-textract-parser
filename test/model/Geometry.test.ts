@@ -1,4 +1,4 @@
-import TextractGeometry from '../../src/textract/TextractGeometry'
+import TextractGeometry from '../../src/model/Geometry'
 
 describe('Textract point implementation', () => {
   it('should construct point instance', () => {
