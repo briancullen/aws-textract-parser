@@ -5,7 +5,7 @@ type ParsedDetectTextCallback = (err: AWSError | null, data: Document | null) =>
 type TextractDetectTextCallback = (err: AWSError | null, data: Textract.Types.DetectDocumentTextResponse | null) => void
 
 function parseDetectTextResponse (response: Textract.DetectDocumentTextResponse): Document {
-  const pages = response.DocumentMetadata?.Pages === undefined ? 0 : response.DocumentMetadata.Pages
+  const pages: number = response.DocumentMetadata?.Pages ?? 0
   return new Document(pages, [])
 }
 
