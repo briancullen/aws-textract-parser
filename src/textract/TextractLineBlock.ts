@@ -5,6 +5,6 @@ export default class TextractLineBlock extends TextractParentBlock<WordBlock> im
   readonly blockType: 'LINE' = 'LINE'
 
   constructor (readonly id: string, readonly geometry: Geometry, readonly text: string, words: Blocks<WordBlock>) {
-    super(words)
+    super(words.sort((a, b) => a.geometry.boundaryBox.left - b.geometry.boundaryBox.left))
   }
 }
