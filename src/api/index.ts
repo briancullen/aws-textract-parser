@@ -47,3 +47,12 @@ export interface LineBlock extends CommonBlock, ParentBlock<WordBlock>, TextProv
 export interface WordBlock extends CommonBlock, TextProvider {
   readonly blockType: 'WORD'
 }
+
+export interface DocumentMetadata {
+  readonly pages: number
+}
+
+export interface Document extends ParentBlock<Block> {
+  readonly metadata: DocumentMetadata
+  pages: ParentBlock<PageBlock>
+}

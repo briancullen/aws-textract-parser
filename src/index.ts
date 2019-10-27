@@ -1,18 +1,21 @@
 import { AWSError, Textract } from 'aws-sdk'
+import { Document } from './api'
+import TextractDocument from './textract/TextractDocument'
 
-type ParsedDetectTextCallback = (err: AWSError | null, data: object | null) => void
+type ParsedDetectTextCallback = (err: AWSError | null, data: Document | null) => void
 type TextractDetectTextCallback = (err: AWSError | null, data: Textract.Types.DetectDocumentTextResponse | null) => void
 
-function parseDetectTextResponse (response: Textract.DetectDocumentTextResponse): object {
-  return { }
+function parseDetectTextResponse (response: Textract.DetectDocumentTextResponse): Document {
+  const pages = response.DocumentMetadata?.Pages === undefined ? 0 : response.DocumentMetadata.Pages
+  return new TextractDocument(pages, [])
 }
 
 function handleDetectTextCallback (callback: ParsedDetectTextCallback): TextractDetectTextCallback {
   return (err, detectTextResponse): void => {
     if (err !== null || detectTextResponse === null) {
-      callback(err, detectTextResponse)
+      callback(err, null)
     } else {
-      callback(err, parseDetectTextResponse(detectTextResponse))
+      callback(null, parseDetectTextResponse(detectTextResponse))
     }
   }
 }

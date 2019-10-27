@@ -1,5 +1,5 @@
 import TextractParser from '../src'
-import { Textract, AWSError } from 'aws-sdk'
+import { AWSError } from 'aws-sdk'
 
 describe('Should handle textract callback', () => {
   it('Should passthrough error without alteration', (done) => {
@@ -13,16 +13,17 @@ describe('Should handle textract callback', () => {
     callback(error as AWSError, null)
   })
 
-  it('Should return empty object on parsing', (done) => {
-    const result = {}
-    const response: Textract.DetectDocumentTextResponse = {
+  it('Should return document on parsing', (done) => {
+    const response = {
       DocumentMetadata: { Pages: 1 },
       Blocks: []
     }
 
     const callback = TextractParser.handleDetectTextCallback((err, data) => {
       expect(err).toBeNull()
-      expect(data).toEqual(result)
+      expect(data).not.toBeNull()
+      expect(data?.metadata.pages).toEqual(response.DocumentMetadata.Pages)
+      expect(data?.children()).toEqual(response.Blocks)
       done()
     })
 
@@ -31,14 +32,24 @@ describe('Should handle textract callback', () => {
 })
 
 describe('Should handle textract response', () => {
-  it('Should return empty object on parsing', () => {
-    const expectedResult = {}
-    const response: Textract.DetectDocumentTextResponse = {
+  it('Should return document object on parsing', () => {
+    const response = {
       DocumentMetadata: { Pages: 1 },
       Blocks: []
     }
 
     const result = TextractParser.parseDetectTextResponse(response)
-    expect(result).toEqual(expectedResult)
+    expect(result.metadata.pages).toEqual(response.DocumentMetadata.Pages)
+    expect(result.children()).toEqual(response.Blocks)
+  })
+
+  it('Should handle empty metadata', () => {
+    const response = {
+      Blocks: []
+    }
+
+    const result = TextractParser.parseDetectTextResponse(response)
+    expect(result.metadata.pages).toEqual(0)
+    expect(result.children()).toEqual(response.Blocks)
   })
 })
