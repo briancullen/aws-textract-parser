@@ -19,7 +19,8 @@ export default class LineParser implements BlockParser<LineBlock> {
 
     const id = this.blockIdParser(line)
     const geometry = this.geometryParser(line)
+    const confidence = line.Confidence ?? 0
     const text = line.Text ?? ''
-    return new LineBlock(id, geometry, text, words)
+    return new LineBlock(id, geometry, text, confidence, words)
   }
 }

@@ -11,6 +11,7 @@ export interface CommonBlock {
 
 export interface TextProvider {
   readonly text: string
+  readonly confidence: number
 }
 
 export type Block = PageBlock | LineBlock | WordBlock
