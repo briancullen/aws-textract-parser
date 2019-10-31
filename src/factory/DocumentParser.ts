@@ -1,14 +1,15 @@
 import { Textract } from 'aws-sdk'
-import Document from '../model/Document'
+import DocumentNode from '../model/DocumentNode'
 import { ParserFactory, DocumentFactory } from './Factory'
-import PageBlock from '../model/PageBlock'
+import PageBlockNode from '../model/PageBlockNode'
+import { Document } from '../types'
 
 export class DocumentParser implements DocumentFactory {
-  constructor (private readonly pageParserFactory: ParserFactory<PageBlock>) { }
+  constructor (private readonly pageParserFactory: ParserFactory<PageBlockNode>) { }
 
   process (input: Textract.DetectDocumentTextResponse): Document {
     if (input.DocumentMetadata?.Pages === undefined) {
-      return new Document([])
+      return new DocumentNode([])
     }
 
     const blocks = input.Blocks ?? []
@@ -19,6 +20,6 @@ export class DocumentParser implements DocumentFactory {
     const pages = blocks.filter(block => block.BlockType === 'PAGE')
       .map(block => parser.process(block))
 
-    return new Document(pages)
+    return new DocumentNode(pages)
   }
 }

@@ -1,11 +1,18 @@
 import { Textract } from 'aws-sdk'
 import PageParser from '../../src/factory/PageParser'
+import { Geometry } from '../../src/model/Geometry'
+import LineBlockNode from '../../src/model/LineBlockNode'
 
 describe('Page block parser', () => {
+  const geometry: Geometry = {
+    boundaryBox: { top: 1, left: 2, width: 3, height: 4 },
+    polygon: []
+  }
+
   const geometrySpy = jest.fn()
   const blockIdSpy = jest.fn()
   const lineParser = {
-    process: jest.fn()
+    process: jest.fn(() => new LineBlockNode('id', geometry, 'text', 0, []))
   }
 
   beforeEach(() => {
@@ -42,7 +49,9 @@ describe('Page block parser', () => {
     expect(lineParser.process).toHaveBeenCalledWith(blockMap.get('1'))
     expect(lineParser.process).toHaveBeenCalledWith(blockMap.get('3'))
     expect(lineParser.process).toHaveBeenCalledWith(blockMap.get('4'))
+
     expect(result.children().length).toEqual(3)
+    result.children().forEach(child => expect(child.parent()).toBe(result))
   })
 
   it('should ignore children that are not lines', () => {

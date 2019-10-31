@@ -1,8 +1,9 @@
-import ParentBlock from '../../src/model/ParentBlock'
 import { Geometry } from '../../src/model/Geometry'
-import WordBlock from '../../src/model/WordBlock'
+import WordBlock from '../../src/model/WordBlockNode'
+import Document from '../../src/model/DocumentNode'
+import BlockNode from '../../src/model/BlockNode'
 
-describe('Textract parent block implementation', () => {
+describe('Block node implementation', () => {
   const text = 'text'
   const confidence = 99.9999999999
   const geometry: Geometry = {
@@ -15,25 +16,43 @@ describe('Textract parent block implementation', () => {
   const word3 = new WordBlock('id3', geometry, text, confidence)
 
   const words = [word1, word2]
-  const block = new ParentBlock<WordBlock>(words)
+  const document = new Document([])
 
   it('should return children', () => {
+    // When
+    const block = new BlockNode<Document, WordBlock>(words)
+
     // Then
     expect(block.children()).toHaveLength(2)
     expect(block.children()).toEqual(words)
   })
 
   it('should check if block has child', () => {
+    // When
+    const block = new BlockNode<Document, WordBlock>(words)
+
     // Then
     expect(block.hasChild(word1)).toBe(true)
     expect(block.hasChild(word2)).toBe(true)
     expect(block.hasChild(word3)).toBe(false)
   })
 
-  it('should get child by id', () => {
+  it('should return undefined if parent not set', () => {
+    // When
+    const block = new BlockNode<Document, WordBlock>(words)
+
     // Then
-    expect(block.get(word1.id)).toBe(word1)
-    expect(block.get(word2.id)).toBe(word2)
-    expect(block.get(word3.id)).toBeUndefined()
+    expect(block.parent()).toBeUndefined()
+  })
+
+  it('should return parent', () => {
+    // Given
+    const block = new BlockNode<Document, WordBlock>(words)
+
+    // When
+    block.setParant(document)
+
+    // Then
+    expect(block.parent()).toBe(document)
   })
 })

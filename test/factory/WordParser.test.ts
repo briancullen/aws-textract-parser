@@ -28,6 +28,7 @@ describe('Word block parser', () => {
     expect(result.confidence).toEqual(expectedConfidence)
     expect(geometrySpy).toHaveBeenCalledWith(block)
     expect(blockIdSpy).toHaveBeenCalledWith(block)
+    expect(result.children()).toEqual([])
   })
 
   it('should parse blank word block', () => {
