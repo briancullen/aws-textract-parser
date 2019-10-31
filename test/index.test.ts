@@ -22,7 +22,7 @@ describe('Should handle textract callback', () => {
     const callback = textractParser.handleDetectTextCallback((err, data) => {
       expect(err).toBeNull()
       expect(data).not.toBeNull()
-      expect(data?.metadata.pages).toEqual(response.DocumentMetadata.Pages)
+      expect(data?.metadata.pages).toEqual(0)
       expect(data?.children()).toEqual([])
       done()
     })
@@ -39,7 +39,7 @@ describe('Should handle textract response', () => {
     }
 
     const result = textractParser.parseDetectTextResponse(response)
-    expect(result.metadata.pages).toEqual(response.DocumentMetadata.Pages)
+    expect(result.metadata.pages).toEqual(0)
     expect(result.children()).toEqual([])
   })
 
