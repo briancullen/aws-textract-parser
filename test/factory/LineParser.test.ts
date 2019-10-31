@@ -1,11 +1,18 @@
 import { Textract } from 'aws-sdk'
 import LineParser from '../../src/factory/LineParser'
+import WordBlockNode from '../../src/model/WordBlockNode'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Line block parser', () => {
+  const geometry: Geometry = {
+    boundaryBox: { top: 1, left: 2, width: 3, height: 4 },
+    polygon: []
+  }
+
   const geometrySpy = jest.fn()
   const blockIdSpy = jest.fn()
   const wordParser = {
-    process: jest.fn()
+    process: jest.fn(() => new WordBlockNode('id', geometry, 'text', 0))
   }
 
   beforeEach(() => {
@@ -48,7 +55,9 @@ describe('Line block parser', () => {
     expect(wordParser.process).toHaveBeenCalledWith(blockMap.get('1'))
     expect(wordParser.process).toHaveBeenCalledWith(blockMap.get('3'))
     expect(wordParser.process).toHaveBeenCalledWith(blockMap.get('4'))
+
     expect(result.children().length).toEqual(3)
+    result.children().forEach(child => expect(child.parent()).toBe(result))
   })
 
   it('should ignore children that are not words', () => {

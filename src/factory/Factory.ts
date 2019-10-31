@@ -1,7 +1,6 @@
-import { Block } from '../types'
+import { Block, Document } from '../types'
 import { Textract } from 'aws-sdk'
-import Geometry from '../model/Geometry'
-import Document from '../model/Document'
+import { Geometry } from '../model/Geometry'
 
 export type ParserFactory<T extends Block> = (blocks: Map<string, Textract.Block>) => BlockParser<T>
 

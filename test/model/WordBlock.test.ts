@@ -1,5 +1,5 @@
-import TextractWordBlock from '../../src/model/WordBlock'
-import Geometry from '../../src/model/Geometry'
+import WordBlockNode from '../../src/model/WordBlockNode'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Textract word block implementation', () => {
   it('should construct word block instance', () => {
@@ -13,7 +13,7 @@ describe('Textract word block implementation', () => {
     }
 
     // When
-    const word = new TextractWordBlock(id, geometry, text, confidence)
+    const word = new WordBlockNode(id, geometry, text, confidence)
 
     // Then
     expect(word.id).toEqual(id)

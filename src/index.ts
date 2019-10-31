@@ -1,9 +1,10 @@
 import { AWSError, Textract } from 'aws-sdk'
-import Document from './model/Document'
 import documentFactory, { DocumentFactory } from './factory'
+import { Document } from './types'
 
-type ParsedDetectTextCallback = (err: AWSError | null, data: Document | null) => void
-type TextractDetectTextCallback = (err: AWSError | null, data: Textract.Types.DetectDocumentTextResponse | null) => void
+export type ParsedDetectTextCallback = (err: AWSError | null, data: Document | null) => void
+export type TextractDetectTextCallback = (err: AWSError | null,
+  data: Textract.Types.DetectDocumentTextResponse | null) => void
 
 export class TextractParser {
   constructor (private readonly factory: DocumentFactory) { }
@@ -23,4 +24,6 @@ export class TextractParser {
   }
 }
 
+export { Document, PageBlock, LineBlock, WordBlock, Block, Blocks, DocumentMetadata } from './types'
+export { Geometry, BoundaryBox, Polygon, Point } from './model/Geometry'
 export default new TextractParser(documentFactory)

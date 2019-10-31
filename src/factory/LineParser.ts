@@ -1,16 +1,16 @@
 import { Textract } from 'aws-sdk'
-import LineBlock from '../model/LineBlock'
-import WordBlock from '../model/WordBlock'
+import LineBlockNode from '../model/LineBlockNode'
+import WordBlock from '../model/WordBlockNode'
 import { BlockParser, GeometryParser, BlockIdParser } from './Factory'
 
-export default class LineParser implements BlockParser<LineBlock> {
+export default class LineParser implements BlockParser<LineBlockNode> {
   constructor (private readonly wordParser: BlockParser<WordBlock>,
     private readonly geometryParser: GeometryParser,
     private readonly blockIdParser: BlockIdParser,
     private readonly blockMap: Map<string, Textract.Block>) {
   }
 
-  process (line: Textract.Block): LineBlock {
+  process (line: Textract.Block): LineBlockNode {
     const children = line.Relationships?.find(relationship => relationship.Type === 'CHILD')?.Ids ?? []
     const words = children.map(id => this.blockMap.get(id))
       .filter((block): block is Textract.Block => block !== undefined)
@@ -21,6 +21,6 @@ export default class LineParser implements BlockParser<LineBlock> {
     const geometry = this.geometryParser(line)
     const confidence = line.Confidence ?? 0
     const text = line.Text ?? ''
-    return new LineBlock(id, geometry, text, confidence, words)
+    return new LineBlockNode(id, geometry, text, confidence, words)
   }
 }

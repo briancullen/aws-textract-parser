@@ -1,6 +1,6 @@
-import LineBlock from '../../src/model/LineBlock'
-import TextractWordBlock from '../../src/model/WordBlock'
-import Geometry from '../../src/model/Geometry'
+import LineBlockNode from '../../src/model/LineBlockNode'
+import WordBlockNode from '../../src/model/WordBlockNode'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Textract line block implementation', () => {
   it('should construct line block instance', () => {
@@ -14,7 +14,7 @@ describe('Textract line block implementation', () => {
     }
 
     // When
-    const line = new LineBlock(id, geometry, text, confidence, [])
+    const line = new LineBlockNode(id, geometry, text, confidence, [])
 
     // Then
     expect(line.id).toEqual(id)
@@ -46,12 +46,12 @@ describe('Textract line block implementation', () => {
       polygon
     }
 
-    const word1 = new TextractWordBlock('id1', geometry1, text, confidence)
-    const word2 = new TextractWordBlock('id2', geometry2, text, confidence)
-    const word3 = new TextractWordBlock('id3', geometry3, text, confidence)
+    const word1 = new WordBlockNode('id1', geometry1, text, confidence)
+    const word2 = new WordBlockNode('id2', geometry2, text, confidence)
+    const word3 = new WordBlockNode('id3', geometry3, text, confidence)
 
     // When
-    const line = new LineBlock(id, geometry1, text, confidence, [word1, word2, word3])
+    const line = new LineBlockNode(id, geometry1, text, confidence, [word1, word2, word3])
 
     // Then
     expect(line.id).toEqual(id)

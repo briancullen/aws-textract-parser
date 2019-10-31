@@ -1,8 +1,15 @@
 import { Textract } from 'aws-sdk'
 import { DocumentParser } from '../../src/factory/DocumentParser'
+import PageBlockNode from '../../src/model/PageBlockNode'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Document Parser', () => {
-  const pageParser = { process: jest.fn() }
+  const geometry: Geometry = {
+    boundaryBox: { top: 1, left: 2, width: 3, height: 4 },
+    polygon: []
+  }
+
+  const pageParser = { process: jest.fn(() => new PageBlockNode('1', geometry, [])) }
   const parserFactory = jest.fn(() => pageParser)
   const documentParser = new DocumentParser(parserFactory)
 
@@ -32,7 +39,9 @@ describe('Document Parser', () => {
     expect(pageParser.process).toHaveBeenCalledTimes(2)
     expect(pageParser.process).toHaveBeenCalledWith(textractResponse.Blocks[0])
     expect(pageParser.process).toHaveBeenCalledWith(textractResponse.Blocks[2])
+
     expect(result.children().length).toEqual(2)
+    result.children().forEach(child => expect(child.parent()).toBe(result))
   })
 
   it('should not parse if no metadata', () => {

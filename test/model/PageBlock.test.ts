@@ -1,6 +1,6 @@
-import TextractPageBlock from '../../src/model/PageBlock'
-import LineBlock from '../../src/model/LineBlock'
-import Geometry from '../../src/model/Geometry'
+import PageBlockNode from '../../src/model/PageBlockNode'
+import LineBlockNode from '../../src/model/LineBlockNode'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Textract page block implementation', () => {
   it('should construct page block instance', () => {
@@ -13,10 +13,10 @@ describe('Textract page block implementation', () => {
       polygon: [{ x: 1, y: 2 }]
     }
 
-    const line = new LineBlock(id, geometry, text, confidence, [])
+    const line = new LineBlockNode(id, geometry, text, confidence, [])
 
     // When
-    const page = new TextractPageBlock(id, geometry, [line])
+    const page = new PageBlockNode(id, geometry, [line])
 
     // Then
     expect(page.id).toEqual(id)

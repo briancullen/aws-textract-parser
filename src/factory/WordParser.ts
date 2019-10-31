@@ -1,5 +1,5 @@
 import { Textract } from 'aws-sdk'
-import WordBlock from '../model/WordBlock'
+import WordBlock from '../model/WordBlockNode'
 import { BlockParser, BlockIdParser, GeometryParser } from './Factory'
 
 export default class WordParser implements BlockParser<WordBlock> {
