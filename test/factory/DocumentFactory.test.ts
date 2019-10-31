@@ -129,7 +129,7 @@ describe('Document Parser', () => {
     documentParser.process(textractResponse)
 
     // Then
-    const map: Map<string, Textract.Block> = ((parserFactory.mock.calls[0] as any)[0])
+    const map = ((parserFactory.mock.calls[0] as Array<Map<string, Textract.Block>>)[0])
     expect(map.size).toEqual(textractResponse.Blocks.length)
     textractResponse.Blocks.forEach(block => expect(map.get(block.Id)).toEqual(block))
   })
