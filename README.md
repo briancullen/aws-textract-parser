@@ -44,6 +44,10 @@ Unfortunately this tree structure is flattened into a array which makes navigati
 
 ## Usage
 
+The default export from the module is a parser instance that supports two different methods, `handleDetectTextCallback` and `handleDetectTextResponse`.
+
+`handleDetectTextCallback` is a helper method that can be passed in as the standard callback to the Textract method. In turn it will call another callback with the processed tree. An example of this type of usage is shown below.
+
 ```typescript
 import { Textract } from 'aws-sdk'
 import textractParser from '<TBD>'
@@ -60,8 +64,8 @@ const myCallback = (err, data) => {
 const request = {
   Document: {
     S3Object: {
-      Bucket: "chorus-deployment-116147290797",
-      Name: "textract/willsmith.jpg"
+      Bucket: "your-s3-bucket",
+      Name: "your-object-key"
     }
   }
 }
@@ -70,9 +74,13 @@ textract.detectDocumentText(request,
   textractParser.handleDetectTextCallback(myCallback))
 ```
 
+`handleDetectTextResponse` will take a value of type `Textract.DetectDocumentTextResponse` and process it synchronously. This can be used with the promises provided by the AWS SDK. An example of how to use it in this manner is shown below.
+
 ```typescript
 textract.detectDocumentText(request).promise()
   .then(data => textractParser.parseDetectTextResponse(data))
   .then(parsedData => console.log(parsedData))
   .catch(err => console.log(err))
 ```
+
+## API
