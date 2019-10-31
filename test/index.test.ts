@@ -1,10 +1,10 @@
-import TextractParser from '../src'
+import textractParser from '../src'
 import { AWSError } from 'aws-sdk'
 
 describe('Should handle textract callback', () => {
   it('Should passthrough error without alteration', (done) => {
     const error = {}
-    const callback = TextractParser.handleDetectTextCallback((err, data) => {
+    const callback = textractParser.handleDetectTextCallback((err, data) => {
       expect(err).toBe(error)
       expect(data).toBeNull()
       done()
@@ -19,11 +19,11 @@ describe('Should handle textract callback', () => {
       Blocks: []
     }
 
-    const callback = TextractParser.handleDetectTextCallback((err, data) => {
+    const callback = textractParser.handleDetectTextCallback((err, data) => {
       expect(err).toBeNull()
       expect(data).not.toBeNull()
       expect(data?.metadata.pages).toEqual(response.DocumentMetadata.Pages)
-      expect(data?.children()).toEqual(response.Blocks)
+      expect(data?.children()).toEqual([])
       done()
     })
 
@@ -38,9 +38,9 @@ describe('Should handle textract response', () => {
       Blocks: []
     }
 
-    const result = TextractParser.parseDetectTextResponse(response)
+    const result = textractParser.parseDetectTextResponse(response)
     expect(result.metadata.pages).toEqual(response.DocumentMetadata.Pages)
-    expect(result.children()).toEqual(response.Blocks)
+    expect(result.children()).toEqual([])
   })
 
   it('Should handle empty metadata', () => {
@@ -48,8 +48,8 @@ describe('Should handle textract response', () => {
       Blocks: []
     }
 
-    const result = TextractParser.parseDetectTextResponse(response)
+    const result = textractParser.parseDetectTextResponse(response)
     expect(result.metadata.pages).toEqual(0)
-    expect(result.children()).toEqual(response.Blocks)
+    expect(result.children()).toEqual([])
   })
 })

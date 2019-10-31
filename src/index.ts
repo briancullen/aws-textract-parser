@@ -1,25 +1,26 @@
 import { AWSError, Textract } from 'aws-sdk'
 import Document from './model/Document'
+import documentFactory, { DocumentFactory } from './factory'
 
 type ParsedDetectTextCallback = (err: AWSError | null, data: Document | null) => void
 type TextractDetectTextCallback = (err: AWSError | null, data: Textract.Types.DetectDocumentTextResponse | null) => void
 
-function parseDetectTextResponse (response: Textract.DetectDocumentTextResponse): Document {
-  const pages: number = response.DocumentMetadata?.Pages ?? 0
-  return new Document(pages, [])
-}
+export class TextractParser {
+  constructor (private readonly factory: DocumentFactory) { }
 
-function handleDetectTextCallback (callback: ParsedDetectTextCallback): TextractDetectTextCallback {
-  return (err, detectTextResponse): void => {
-    if (err !== null || detectTextResponse === null) {
-      callback(err, null)
-    } else {
-      callback(null, parseDetectTextResponse(detectTextResponse))
+  parseDetectTextResponse (response: Textract.DetectDocumentTextResponse): Document {
+    return this.factory.process(response)
+  }
+
+  handleDetectTextCallback (callback: ParsedDetectTextCallback): TextractDetectTextCallback {
+    return (err, detectTextResponse): void => {
+      if (err !== null || detectTextResponse === null) {
+        callback(err, null)
+      } else {
+        callback(null, this.parseDetectTextResponse(detectTextResponse))
+      }
     }
   }
 }
 
-export default {
-  handleDetectTextCallback,
-  parseDetectTextResponse
-}
+export default new TextractParser(documentFactory)
