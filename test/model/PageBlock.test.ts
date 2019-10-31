@@ -1,6 +1,6 @@
 import TextractPageBlock from '../../src/model/PageBlock'
 import LineBlock from '../../src/model/LineBlock'
-import Geometry from '../../src/model/Geometry'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Textract page block implementation', () => {
   it('should construct page block instance', () => {

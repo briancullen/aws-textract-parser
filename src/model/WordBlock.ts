@@ -1,4 +1,4 @@
-import Geometry from './Geometry'
+import { Geometry } from './Geometry'
 import { CommonBlock, TextProvider } from '../types'
 
 export default class WordBlock implements CommonBlock, TextProvider {

@@ -1,5 +1,5 @@
 import ParentBlock from '../../src/model/ParentBlock'
-import Geometry from '../../src/model/Geometry'
+import { Geometry } from '../../src/model/Geometry'
 import WordBlock from '../../src/model/WordBlock'
 
 describe('Textract parent block implementation', () => {

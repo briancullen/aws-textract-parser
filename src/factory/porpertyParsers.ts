@@ -1,7 +1,5 @@
 import { Textract } from 'aws-sdk'
-import Geometry from '../model/Geometry'
-import BoundaryBox from '../model/BoundryBox'
-import Point from '../model/Point'
+import { Geometry, Point, BoundaryBox } from '../model/Geometry'
 
 export function geometryParser (block: Textract.Block): Geometry {
   const originalBox = block.Geometry?.BoundingBox ?? {}

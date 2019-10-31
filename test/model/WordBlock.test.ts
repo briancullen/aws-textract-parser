@@ -1,5 +1,5 @@
 import TextractWordBlock from '../../src/model/WordBlock'
-import Geometry from '../../src/model/Geometry'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Textract word block implementation', () => {
   it('should construct word block instance', () => {

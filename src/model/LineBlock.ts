@@ -1,5 +1,5 @@
 import ParentBlock from './ParentBlock'
-import Geometry from './Geometry'
+import { Geometry } from './Geometry'
 import WordBlock from './WordBlock'
 import { Blocks, CommonBlock, TextProvider } from '../types'
 

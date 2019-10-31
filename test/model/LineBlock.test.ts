@@ -1,6 +1,6 @@
 import LineBlock from '../../src/model/LineBlock'
 import TextractWordBlock from '../../src/model/WordBlock'
-import Geometry from '../../src/model/Geometry'
+import { Geometry } from '../../src/model/Geometry'
 
 describe('Textract line block implementation', () => {
   it('should construct line block instance', () => {
