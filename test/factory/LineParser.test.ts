@@ -17,8 +17,10 @@ describe('Line block parser', () => {
   it('should parse line block', () => {
     // Given
     const expectedText = 'expected'
+    const confidence = 99.11111
     const block = {
       Text: expectedText,
+      Confidence: confidence,
       Relationships: [{
         Type: 'CHILD',
         Ids: ['1', '3', '4']
@@ -38,6 +40,7 @@ describe('Line block parser', () => {
 
     // Then
     expect(result.text).toEqual(expectedText)
+    expect(result.confidence).toEqual(confidence)
     expect(geometrySpy).toHaveBeenCalledWith(block)
     expect(blockIdSpy).toHaveBeenCalledWith(block)
 
@@ -70,6 +73,7 @@ describe('Line block parser', () => {
 
     // Then
     expect(result.text).toEqual('')
+    expect(result.confidence).toEqual(0)
     expect(geometrySpy).toHaveBeenCalledWith(block)
     expect(blockIdSpy).toHaveBeenCalledWith(block)
 

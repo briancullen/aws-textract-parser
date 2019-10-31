@@ -7,12 +7,13 @@ describe('Textract page block implementation', () => {
     // Given
     const id = '12345-ABC'
     const text = 'word'
+    const confidence = 1
     const geometry: Geometry = {
       boundaryBox: { top: 1, left: 2, width: 3, height: 4 },
       polygon: [{ x: 1, y: 2 }]
     }
 
-    const line = new LineBlock(id, geometry, text, [])
+    const line = new LineBlock(id, geometry, text, confidence, [])
 
     // When
     const page = new TextractPageBlock(id, geometry, [line])

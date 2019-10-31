@@ -4,14 +4,15 @@ import WordBlock from '../../src/model/WordBlock'
 
 describe('Textract parent block implementation', () => {
   const text = 'text'
+  const confidence = 99.9999999999
   const geometry: Geometry = {
     boundaryBox: { top: 1, left: 2, width: 3, height: 4 },
     polygon: [{ x: 1, y: 2 }]
   }
 
-  const word1 = new WordBlock('id1', geometry, text)
-  const word2 = new WordBlock('id2', geometry, text)
-  const word3 = new WordBlock('id3', geometry, text)
+  const word1 = new WordBlock('id1', geometry, text, confidence)
+  const word2 = new WordBlock('id2', geometry, text, confidence)
+  const word3 = new WordBlock('id3', geometry, text, confidence)
 
   const words = [word1, word2]
   const block = new ParentBlock<WordBlock>(words)

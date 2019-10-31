@@ -14,7 +14,9 @@ describe('Word block parser', () => {
   it('should parse word block', () => {
     // Given
     const expectedText = 'expected'
+    const expectedConfidence = 9999.9999
     const block: Textract.Block = {
+      Confidence: expectedConfidence,
       Text: expectedText
     }
 
@@ -23,6 +25,7 @@ describe('Word block parser', () => {
 
     // Then
     expect(result.text).toEqual(expectedText)
+    expect(result.confidence).toEqual(expectedConfidence)
     expect(geometrySpy).toHaveBeenCalledWith(block)
     expect(blockIdSpy).toHaveBeenCalledWith(block)
   })
@@ -36,5 +39,6 @@ describe('Word block parser', () => {
 
     // Then
     expect(result.text).toEqual('')
+    expect(result.confidence).toEqual(0)
   })
 })
