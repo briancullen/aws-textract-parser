@@ -1,11 +1,11 @@
 import { Geometry } from './model/Geometry'
 
-interface BaseBlockProperties {
+export interface BaseBlockProperties {
   readonly id: string
   readonly geometry: Geometry
 }
 
-interface TextProvider {
+export interface TextProvider {
   readonly text: string
   readonly confidence: number
 }

@@ -1,0 +1,14 @@
+{
+  "mode": "modules",
+  "out": "docs",
+  "theme": "default",
+  "ignoreCompilerErrors": "true",
+  "target": "ES5",
+  "moduleResolution": "node",
+  "preserveConstEnums": "true",
+  "stripInternal": "true",
+  "suppressExcessPropertyErrors": "true",
+  "suppressImplicitAnyIndexErrors": "true",
+  "module": "commonjs",
+  "exclude": [ "**/model/*Node.ts", "**/factory/*" ]
+}
