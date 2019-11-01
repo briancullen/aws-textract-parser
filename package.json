@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
+    "docs": "typedoc",
     "build": "tsc",
     "lint": "eslint src/**/* test/**/*",
     "test": "jest --coverage"
@@ -30,6 +31,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
+    "typedoc": "^0.15.0",
     "typescript": "^3.7.1-rc"
   },
   "dependencies": {},
