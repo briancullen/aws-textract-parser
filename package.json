@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "docs": "typedoc",
+    "docs": "typedoc && touch docs/.nojekyll",
     "build": "tsc",
     "lint": "eslint src/**/* test/**/*",
     "test": "jest --coverage"
