@@ -84,3 +84,4 @@ textract.detectDocumentText(request).promise()
 ```
 
 ## API
+See the [API Docs](https://briancullen.github.io/aws-textract-parser/) for more information.
