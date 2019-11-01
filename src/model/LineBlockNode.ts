@@ -1,10 +1,10 @@
 import BlockNode from './BlockNode'
 import { Geometry } from './Geometry'
-import { LineBlock, PageBlock, WordBlock } from '../types'
+import { LineBlock, PageBlock, WordBlock, BlockType } from '../types'
 import WordBlockNode from './WordBlockNode'
 
 export default class LineBlockNode extends BlockNode<PageBlock, WordBlock> implements LineBlock {
-  readonly blockType: 'LINE' = 'LINE'
+  readonly blockType: BlockType.Line = BlockType.Line
 
   constructor (readonly id: string,
     readonly geometry: Geometry,

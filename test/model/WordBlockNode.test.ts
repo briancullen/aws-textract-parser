@@ -1,5 +1,6 @@
 import WordBlockNode from '../../src/model/WordBlockNode'
 import { Geometry } from '../../src/model/Geometry'
+import { BlockType } from '../../src/types'
 
 describe('Textract word block implementation', () => {
   it('should construct word block instance', () => {
@@ -20,5 +21,6 @@ describe('Textract word block implementation', () => {
     expect(word.text).toEqual(text)
     expect(word.geometry).toStrictEqual(geometry)
     expect(word.confidence).toEqual(confidence)
+    expect(word.blockType).toBe(BlockType.Word)
   })
 })
