@@ -1,6 +1,7 @@
 import PageBlockNode from '../../src/model/PageBlockNode'
 import LineBlockNode from '../../src/model/LineBlockNode'
 import { Geometry } from '../../src/model/Geometry'
+import { BlockType } from '../../src/types'
 
 describe('Textract page block implementation', () => {
   it('should construct page block instance', () => {
@@ -22,5 +23,6 @@ describe('Textract page block implementation', () => {
     expect(page.id).toEqual(id)
     expect(page.geometry).toStrictEqual(geometry)
     expect(page.children()).toEqual([line])
+    expect(page.blockType).toBe(BlockType.Page)
   })
 })

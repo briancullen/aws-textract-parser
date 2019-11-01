@@ -24,6 +24,16 @@ export class TextractParser {
   }
 }
 
-export { Document, PageBlock, LineBlock, WordBlock, Block, Blocks, DocumentMetadata } from './types'
+export {
+  Document,
+  PageBlock,
+  LineBlock,
+  WordBlock,
+  Block,
+  Blocks,
+  BlockType,
+  DocumentMetadata
+} from './types'
+
 export { Geometry, BoundaryBox, Polygon, Point } from './model/Geometry'
 export default new TextractParser(documentFactory)

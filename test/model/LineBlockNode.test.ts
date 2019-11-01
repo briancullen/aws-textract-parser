@@ -1,6 +1,7 @@
 import LineBlockNode from '../../src/model/LineBlockNode'
 import WordBlockNode from '../../src/model/WordBlockNode'
 import { Geometry } from '../../src/model/Geometry'
+import { BlockType } from '../../src/types'
 
 describe('Textract line block implementation', () => {
   it('should construct line block instance', () => {
@@ -22,6 +23,7 @@ describe('Textract line block implementation', () => {
     expect(line.geometry).toStrictEqual(geometry)
     expect(line.confidence).toEqual(confidence)
     expect(line.children()).toEqual([])
+    expect(line.blockType).toBe(BlockType.Line)
   })
 
   it('should sort word block instances', () => {
