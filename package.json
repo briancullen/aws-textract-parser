@@ -1,6 +1,6 @@
 {
   "name": "@briancullen/aws-textract-parser",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Library for converting AWS Textract responses into a more usable structure.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

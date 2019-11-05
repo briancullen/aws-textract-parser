@@ -22,6 +22,7 @@ deploy:
     on:
      branch: master
   - provider: npm
+    email: $NPM_EMAIL
     api_token: $NPM_API_TOKEN
     edge: true
     on:
