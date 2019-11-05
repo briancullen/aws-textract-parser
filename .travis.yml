@@ -18,6 +18,7 @@ deploy:
   - provider: pages
     token: $GITHUB_TOKEN
     local_dir: docs
+    keep_history: false
     edge: true
     on:
      branch: master
