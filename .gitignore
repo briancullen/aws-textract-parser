@@ -2,6 +2,7 @@ node_modules
 coverage
 lib
 docs
+.idea
 
 *.tgz
 .vscode

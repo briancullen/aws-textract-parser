@@ -89,6 +89,7 @@ describe('Should handle get text detection', () => {
   const jobId = '123456781234567'
 
   each(['IN_PROGRESS', 'FAILED', 'PARTIAL_SUCCESS']).it('Should fail if job status is %s', async (status) => {
+    // Given
     const client: Textract = ({
       getDocumentTextDetection: jest.fn(request => {
         expect(request.JobId).toEqual(jobId)
@@ -97,6 +98,7 @@ describe('Should handle get text detection', () => {
       })
     } as unknown) as Textract
 
+    // When
     return textractParser.parseGetTextDetection(client, jobId)
       .then(document => fail())
       .catch(error => {
@@ -106,6 +108,7 @@ describe('Should handle get text detection', () => {
   })
 
   it('should return AWS error to caller', async () => {
+    // Given
     const error = new Error('some message')
     const client: Textract = ({
       getDocumentTextDetection: jest.fn(request => {
@@ -115,6 +118,7 @@ describe('Should handle get text detection', () => {
       })
     } as unknown) as Textract
 
+    // When
     return textractParser.parseGetTextDetection(client, jobId)
       .then(document => fail())
       .catch(error => {
@@ -123,6 +127,7 @@ describe('Should handle get text detection', () => {
   })
 
   it('should process response requiring multiple requests', async () => {
+    // Given
     const responses = [
       { DocumentMetadata: { Pages: 3 }, NextToken: '1', JobStatus: 'SUCCEEDED' },
       {
@@ -142,6 +147,7 @@ describe('Should handle get text detection', () => {
       })
     } as unknown) as Textract
 
+    // When
     return textractParser.parseGetTextDetection(client, jobId)
       .then(document => {
         expect(document).toBeDefined()
