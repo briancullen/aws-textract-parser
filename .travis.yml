@@ -15,9 +15,15 @@ script:
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 deploy:
-  provider: pages
-  token: $GITHUB_TOKEN
-  local_dir: docs
-  edge: true
-  on:
-    branch: master
+  - provider: pages
+    token: $GITHUB_TOKEN
+    local_dir: docs
+    edge: true
+    on:
+     branch: master
+  - provider: npm
+    api_token: $NPM_API_TOKEN
+    edge: true
+    on:
+      tags: true
+      branch: master
