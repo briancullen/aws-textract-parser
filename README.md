@@ -100,3 +100,5 @@ textract.detectDocumentText(client, jobId)
 
 ## API
 See the [API Docs](https://briancullen.github.io/aws-textract-parser/) for more information.
+
+In particular refer to the API for the Document class as this forms the root of the tree that is returned.
