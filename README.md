@@ -5,7 +5,7 @@
 
 Textract is an AWS service that lets you extract text from pictures or PDF documents. This library was created to process the the response from that service and transform it into something a little more manageable.
 
-> **NOTE**: Currently this library is only setup to deal with responses from the DetectDocumentText calls. Parsing the calls that analyse documents may be added at a later date.
+> **NOTE**: Currently this library is only setup to deal with responses from the DetectDocumentText calls, either synchronous or asynchronous. Parsing the calls that analyse documents may be added at a later date.
 
 ## Rationale
 Textract returns json representing the pages, lines and words it has detected in the input. Below is a simplified example of the data you could expect for a single line of text consisting of two words. As you can see the data describes a tree where the line is identified as a child of the page and the words as children of the line.
@@ -44,7 +44,7 @@ Unfortunately this tree structure is flattened into a array which makes navigati
 
 ## Usage
 
-The default export from the module is a parser instance that supports two different methods, `handleDetectTextCallback` and `handleDetectTextResponse`.
+The default export from the module is a parser instance that supports three different methods, `handleDetectTextCallback`, `handleDetectTextResponse`, and `parseGetTextDetection`.
 
 `handleDetectTextCallback` is a helper method that can be passed in as the standard callback to the Textract method. In turn it will call another callback with the processed tree. An example of this type of usage is shown below.
 
@@ -82,6 +82,21 @@ textract.detectDocumentText(request).promise()
   .then(parsedData => console.log(parsedData))
   .catch(err => console.log(err))
 ```
+
+`parseGetTextDetection` is a helper method to be used with the GetDocumentTextDetection operation. This operation can return the processed information over multiple requests which causes a problem when trying to construct the complete tree. If all the results are returned in a single response then the `handleDetectTextResponse` can be used as shown above.
+
+However, if that is not the case, then this call can be used to retrieve all the data and construct the tree as shown below. To allow the SDK to be configured differently in different environments a instantiated Textract client must be provided to this method.
+
+```typescript
+const jobId = 'your-job-id'
+const client = new AWS.Textract()
+
+textract.detectDocumentText(client, jobId)
+ .then(parsedData => console.log(parsedData))
+ .catch(err => console.log(err))
+```
+
+**NOTE** This method will load the entire set of results into memory which may cause issues for really large documents. To give some context for a 10 page document of text the size of the results returned from textract was in the region of 7MB.
 
 ## API
 See the [API Docs](https://briancullen.github.io/aws-textract-parser/) for more information.

@@ -23,6 +23,7 @@
     "max-len": [ "error", { "code": 120 } ],
     "linebreak-style": ["error", "unix"],
     "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/require-await": "off",
     "@typescript-eslint/no-unnecessary-condition": ["error", { "ignoreRhs": true }]
   }
 }
