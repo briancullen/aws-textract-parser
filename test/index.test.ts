@@ -40,34 +40,46 @@ describe('Should handle textract callback', () => {
 
 describe('Should handle textract response', () => {
   it('Should return null if NextToken present', () => {
+    // Given
     const response = {
       DocumentMetadata: { Pages: 1 },
       Blocks: [],
       NextToken: 'asdfasdfasdfasd'
     }
 
+    // When
     const result = textractParser.parseDetectTextResponse(response)
+
+    // Then
     expect(result).toBeNull()
   })
 
   it('Should return document object on parsing', () => {
+    // Given
     const response = {
       DocumentMetadata: { Pages: 1 },
       Blocks: []
     }
 
+    // When
     const result = textractParser.parseDetectTextResponse(response)
+
+    // Then
     expect(result).toBeDefined()
     expect(result?.metadata.pages).toEqual(0)
     expect(result?.children()).toEqual([])
   })
 
   it('Should handle empty metadata', () => {
+    // Given
     const response = {
       Blocks: []
     }
 
+    // When
     const result = textractParser.parseDetectTextResponse(response)
+
+    // Then
     expect(result?.metadata.pages).toEqual(0)
     expect(result?.children()).toEqual([])
   })
