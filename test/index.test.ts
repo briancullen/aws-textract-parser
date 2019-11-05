@@ -4,23 +4,28 @@ import each from 'jest-each'
 
 describe('Should handle textract callback', () => {
   it('Should passthrough error without alteration', (done) => {
+    // Given
     const error = {}
     const callback = textractParser.parseDetectTextCallback((err, data) => {
+      // Then
       expect(err).toBe(error)
       expect(data).toBeNull()
       done()
     })
 
+    // When
     callback(error as AWSError, null)
   })
 
   it('Should return document on parsing', (done) => {
+    // Given
     const response = {
       DocumentMetadata: { Pages: 1 },
       Blocks: []
     }
 
     const callback = textractParser.parseDetectTextCallback((err, data) => {
+      // Then
       expect(err).toBeNull()
       expect(data).not.toBeNull()
       expect(data?.metadata.pages).toEqual(0)
@@ -28,6 +33,7 @@ describe('Should handle textract callback', () => {
       done()
     })
 
+    // When
     callback(null, response)
   })
 })
