@@ -16,8 +16,8 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  token: $GITHUB_TOKEN
   local_dir: docs
+  edge: true
   on:
     branch: master
