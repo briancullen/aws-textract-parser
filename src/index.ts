@@ -60,9 +60,11 @@ export class TextractParser {
   }
 
   /**
-   * Method that acts as a proxy for the standard Textract callback. This proxy will process
-   * the data returned by Textract and call the provided callback with the processed information.
-   * It can be invoked as shown, where myCallback is written by the user of the library.
+   * Method that acts as a proxy for the standard Textract callback.
+   *
+   * This proxy will process the data returned by Textract and call the provided callback
+   * with the processed information. It can be invoked as shown, where myCallback is written
+   * by the user of the library.
    *
    * ```typescript
    * textract.detectDocumentText(request, textractParser.parseDetectTextCallback(myCallback))
