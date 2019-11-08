@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TextractParser | @briancullen/aws-textract-parser</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@briancullen/aws-textract-parser</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="textractparser.html">TextractParser</a>
+				</li>
+			</ul>
+			<h1>Class TextractParser</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This class provides methods to process the information returned by Textract into
+						a tree structure that is easier to work with.</p>
+					</div>
+					<p>A single instance of this class is automatically created for you and provided as
+					the default export from this library.</p>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">TextractParser</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="textractparser.html#factory" class="tsd-kind-icon">factory</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="textractparser.html#parsedetecttextcallback" class="tsd-kind-icon">parse<wbr>Detect<wbr>Text<wbr>Callback</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="textractparser.html#parsedetecttextresponse" class="tsd-kind-icon">parse<wbr>Detect<wbr>Text<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="textractparser.html#parsegettextdetection" class="tsd-kind-icon">parse<wbr>Get<wbr>Text<wbr>Detection</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="factory" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> factory</h3>
+					<div class="tsd-signature tsd-kind-icon">factory<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentFactory</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/briancullen/aws-textract-parser/blob/a34d953/src/index.ts#L31">index.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parsedetecttextcallback" class="tsd-anchor"></a>
+					<h3>parse<wbr>Detect<wbr>Text<wbr>Callback</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Detect<wbr>Text<wbr>Callback<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="../globals.html#parseddetecttextcallback" class="tsd-signature-type">ParsedDetectTextCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#textractdetecttextcallback" class="tsd-signature-type">TextractDetectTextCallback</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briancullen/aws-textract-parser/blob/a34d953/src/index.ts#L76">index.ts:76</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Method that acts as a proxy for the standard Textract callback.</p>
+								</div>
+								<p>This proxy will process the data returned by Textract and call the provided callback
+									with the processed information. It can be invoked as shown, where myCallback is written
+								by the user of the library.</p>
+								<pre><code class="language-typescript">textract.detectDocumentText(request, textractParser.parseDetectTextCallback(myCallback))</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <a href="../globals.html#parseddetecttextcallback" class="tsd-signature-type">ParsedDetectTextCallback</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the callback to be invoked with the processed data or error</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../globals.html#textractdetecttextcallback" class="tsd-signature-type">TextractDetectTextCallback</a></h4>
+							<p>callback function that can be used with the AWS Textract invocation</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parsedetecttextresponse" class="tsd-anchor"></a>
+					<h3>parse<wbr>Detect<wbr>Text<wbr>Response</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Detect<wbr>Text<wbr>Response<span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><a href="../globals.html#textractdetecttextresponse" class="tsd-signature-type">TextractDetectTextResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briancullen/aws-textract-parser/blob/a34d953/src/index.ts#L54">index.ts:54</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Method that parses the textract response synchronously.</p>
+								</div>
+								<p>For example it can also be used as part of processing the result of a promise
+								as shown below.</p>
+								<pre><code class="language-typescript">textract.detectDocumentText(request).promise()
+.then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> textractParser.parseDetectTextResponse(data))
+.then(<span class="hljs-function"><span class="hljs-params">parsedData</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(parsedData))
+.catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err))</code></pre>
+								<p><strong>NOTE</strong>: If used to process GetDocumentTextDetectionResponse response then all data should be
+									contained within a single response. If a NextToken is detected on the response then null will
+									be returned. See <a href="textractparser.html#parsegettextdetection">parseGetTextDetection</a> for a helper method which will aggregate the
+								responses from the GetDocumentTextDetection operation.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>response: <a href="../globals.html#textractdetecttextresponse" class="tsd-signature-type">TextractDetectTextResponse</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the response object returned from Textract or null if the response is incomplete</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/document.html" class="tsd-signature-type">Document</a>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
+							<p>Document that acts as the root node for the processed tree</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parsegettextdetection" class="tsd-anchor"></a>
+					<h3>parse<wbr>Get<wbr>Text<wbr>Detection</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Get<wbr>Text<wbr>Detection<span class="tsd-signature-symbol">(</span>textract<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Textract</span>, jobId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/briancullen/aws-textract-parser/blob/a34d953/src/index.ts#L111">index.ts:111</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Method that retrieves the result of a asynchronous document text detection operation
+									(which may require multiple requests to AWS) and produces a tree of the results.</p>
+								</div>
+								<p>An example of how to use this method is shown below.</p>
+								<pre><code class="language-typescript"><span class="hljs-keyword">const</span> jobId = <span class="hljs-string">'your-job-id'</span>
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> AWS.Textract()
+
+textract.detectDocumentText(client, jobId)
+ .then(<span class="hljs-function"><span class="hljs-params">parsedData</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(parsedData))
+ .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err))</code></pre>
+								<p>If the specified Textract job is not marked as SUCCEEDED or the AWS operations fail
+								to return the results then the Promise will be rejected.</p>
+								<p><strong>NOTE</strong>: This method will try and retrieve all the results for the Textract job and
+								process them in memory. For extremely large documents then memory may become an issue.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>textract: <span class="tsd-signature-type">Textract</span></h5>
+								</li>
+								<li>
+									<h5>jobId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the id of the Textract job for which we want to parse the results</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Promise for a document that acts as the root node for the processed tree</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/blocktype.html" class="tsd-kind-icon">Block<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="boundarybox.html" class="tsd-kind-icon">Boundary<wbr>Box</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="geometry.html" class="tsd-kind-icon">Geometry</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="point.html" class="tsd-kind-icon">Point</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="textractparser.html" class="tsd-kind-icon">Textract<wbr>Parser</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="textractparser.html#factory" class="tsd-kind-icon">factory</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="textractparser.html#parsedetecttextcallback" class="tsd-kind-icon">parse<wbr>Detect<wbr>Text<wbr>Callback</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="textractparser.html#parsedetecttextresponse" class="tsd-kind-icon">parse<wbr>Detect<wbr>Text<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="textractparser.html#parsegettextdetection" class="tsd-kind-icon">parse<wbr>Get<wbr>Text<wbr>Detection</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/baseblockproperties.html" class="tsd-kind-icon">Base<wbr>Block<wbr>Properties</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/document.html" class="tsd-kind-icon">Document</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/documentmetadata.html" class="tsd-kind-icon">Document<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/lineblock.html" class="tsd-kind-icon">Line<wbr>Block</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/pageblock.html" class="tsd-kind-icon">Page<wbr>Block</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/textprovider.html" class="tsd-kind-icon">Text<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="../interfaces/treenode.html" class="tsd-kind-icon">Tree<wbr>Node</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/wordblock.html" class="tsd-kind-icon">Word<wbr>Block</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#block" class="tsd-kind-icon">Block</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="../globals.html#blocks" class="tsd-kind-icon">Blocks</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#parseddetecttextcallback" class="tsd-kind-icon">Parsed<wbr>Detect<wbr>Text<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#polygon" class="tsd-kind-icon">Polygon</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#textractdetecttextcallback" class="tsd-kind-icon">Textract<wbr>Detect<wbr>Text<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#textractdetecttextresponse" class="tsd-kind-icon">Textract<wbr>Detect<wbr>Text<wbr>Response</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
