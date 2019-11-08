@@ -15,7 +15,7 @@
     "aws",
     "typescript"
   ],
-  "author": "brian.cullen@gmail.com",
+  "author": "Brian Cullen",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^24.0.20",
