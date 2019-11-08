@@ -31,7 +31,7 @@ export class TextractParser {
   constructor (private readonly factory: DocumentFactory) { }
 
   /**
-   * Method that parses the textract response synchronously. 
+   * Method that parses the textract response synchronously.
    *
    * For example it can also be used as part of processing the result of a promise
    * as shown below.
@@ -86,13 +86,13 @@ export class TextractParser {
   /**
    * Method that retrieves the result of a asynchronous document text detection operation
    * (which may require multiple requests to AWS) and produces a tree of the results.
-   * 
+   *
    * An example of how to use this method is shown below.
    *
    * ```typescript
    * const jobId = 'your-job-id'
    * const client = new AWS.Textract()
-   * 
+   *
    * textract.detectDocumentText(client, jobId)
    *  .then(parsedData => console.log(parsedData))
    *  .catch(err => console.log(err))
